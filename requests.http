@@ -1,0 +1,199 @@
+
+###
+POST http://127.0.0.1:8000/api/v1/user/register
+Content-Type: application/json
+
+{
+        "first_name": "Kate",
+        "last_name": "Baeva",
+        "email": "katebaeva@mail.com",
+        "password": "na687678676",
+        "company": "Company1",
+        "position": "Position1"
+    }
+
+###
+POST http://127.0.0.1:8000/api/v1/user/register/confirm
+Content-Type: application/json
+
+{
+  "email":"katebaeva@mail.com",
+  "token":"38bf9a3fd0741b8c48455"
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/user/login
+Content-Type: application/json
+
+{
+  "email":"katebaeva@mail.com",
+  "password":"na687678676"
+}
+###
+
+GET http://127.0.0.1:8000/api/v1/user/details
+Content-Type: application/json
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+
+
+
+###
+POST http://127.0.0.1:8000/api/v1/user/details
+Content-Type: application/json
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+
+{
+        "first_name": "Kate",
+        "last_name": "Butova",
+        "email": "katebaeva@mail.com",
+        "password": "na687678676",
+        "company": "Company122",
+        "position": "Position123",
+        "type" : "buyer"
+    }
+
+
+###
+GET http://127.0.0.1:8000/api/v1/categories
+
+
+###
+GET http://127.0.0.1:8000/api/v1/shops
+
+
+###
+GET http://127.0.0.1:8000/api/v1/products
+
+
+###
+GET http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+
+###
+POST http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type: application/json
+
+{
+                "city": "Moscow",
+                "street": "Lenina",
+                "house": "20",
+                "structure": "3",
+                "building": "0",
+                "apartment": "0",
+                "phone": "85-58-87"
+                }
+
+###
+PUT http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type: application/json
+
+{
+                "city": "Moscoow",
+                "street": "Lenina",
+                "house": "21",
+                "structure": "3",
+                "building": "0",
+                "apartment": "0",
+                "phone": "85-58-87",
+                "id": "4"
+                }
+
+###
+DELETE http://127.0.0.1:8000/api/v1/user/contact
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type: application/json
+
+{
+  "items" : "4"
+}
+
+###
+GET http://127.0.0.1:8000/api/v1/basket
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+###
+POST http://127.0.0.1:8000/api/v1/basket
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+ {
+   "items": 
+   [
+     {"product_info": 33, 
+     "quantity": 1}
+   ]
+   }
+###
+PUT http://127.0.0.1:8000/api/v1/basket
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+ {
+   "items": 
+   [
+     {"id": 33, 
+     "quantity": 2}
+   ]
+   }
+
+###
+DELETE http://127.0.0.1:8000/api/v1/basket
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+ {
+   "items": "11"
+   
+   }
+
+###
+GET http://127.0.0.1:8000/api/v1/partner/state
+Authorization: Token 15e7a1d2cb4f3666c097baa0a476c176086eff71
+Content-Type:application/json
+
+###
+POST http://127.0.0.1:8000/api/v1/partner/state
+Authorization: Token 15e7a1d2cb4f3666c097baa0a476c176086eff71
+Content-Type:application/json
+
+{
+  "state":"on"
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/partner/update
+Authorization: Token 15e7a1d2cb4f3666c097baa0a476c176086eff71
+Content-Type:application/json
+
+{
+  "url":
+  "https://raw.githubusercontent.com/netology-code/pd-diplom/master/data/shop1.yaml"
+}
+
+
+
+###
+GET http://127.0.0.1:8000/api/v1/order
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+
+###
+POST http://127.0.0.1:8000/api/v1/order
+Authorization: Token a926df14bd48c3bda295aba64efb452ec0eeb9ef
+Content-Type:application/json
+
+{
+  "id":"8",
+  "contact" : "5"
+}
+
+
+###
+GET http://127.0.0.1:8000/api/v1/partner/orders
+Authorization: Token 15e7a1d2cb4f3666c097baa0a476c176086eff71
+Content-Type:application/json
+
