@@ -61,7 +61,7 @@ python manage.py runserver
 Выполнить команду в втором терминале:
 
 ```bash
-celery -A netology_pd_diplom worker -l INFO -P eventlet
+celery -A orders worker -l INFO -P eventlet
 ```
 Запустить тесты:
 ```bash
