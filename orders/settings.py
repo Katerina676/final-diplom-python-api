@@ -77,7 +77,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '5432',
         'USER': 'postgres',
-        'PASSWORD': 'password',
+        'PASSWORD': 'varenie1430',
 
     }
 }
@@ -121,13 +121,12 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'shops.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
 
-EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'username'
 EMAIL_HOST_PASSWORD = 'password'
-EMAIL_PORT = '2525'
-EMAIL_USE_SSL = False
 SERVER_EMAIL = EMAIL_HOST_USER
 
 
