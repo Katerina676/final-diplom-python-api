@@ -21,13 +21,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
     'drf_spectacular',
     'rest_framework.authtoken',
     'django_rest_passwordreset',
@@ -127,6 +127,7 @@ EMAIL_PORT = '465'
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'username'
 EMAIL_HOST_PASSWORD = 'password'
+
 SERVER_EMAIL = EMAIL_HOST_USER
 
 
