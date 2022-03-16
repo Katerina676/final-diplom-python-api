@@ -29,8 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'drf_spectacular',
+    'drf_spectacular_sidecar',
     'rest_framework.authtoken',
     'django_rest_passwordreset',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'shops'
 ]
 
@@ -100,6 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
+                           'allauth.account.auth_backends.AuthenticationBackend',)
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -127,7 +135,6 @@ EMAIL_PORT = '465'
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'username'
 EMAIL_HOST_PASSWORD = 'password'
-
 SERVER_EMAIL = EMAIL_HOST_USER
 
 
@@ -152,7 +159,29 @@ REST_FRAMEWORK = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'orders_api',
+    'DESCRIPTION': 'Project for orders',
+    'VERSION': '1.0.0',
+}
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_USERNAME_REQUIRED = False
+SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_FORMS = {'signup': 'api.forms.UserSignupForm'}
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 R_HOST = 'localhost'
 R_PORT = '6379'
 CELERY_BROKER_URL = 'redis://' + R_HOST + ':' + R_PORT + '/0'

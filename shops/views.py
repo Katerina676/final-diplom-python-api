@@ -13,7 +13,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from ujson import loads as load_json
-
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.decorators import action
 from .models import Shop, Category, ProductInfo, Order, OrderItem, Contact, ConfirmEmailToken
 from .serializers import UserSerializer, CategorySerializer, ShopSerializer, ProductInfoSerializer, \
     OrderItemSerializer, OrderSerializer, ContactSerializer
@@ -145,7 +146,10 @@ class ShopView(ListAPIView):
     serializer_class = ShopSerializer
 
 
-class ProductInfoView(APIView):
+class ProductInfoView(ModelViewSet):
+    queryset = ProductInfo.objects.all()
+    serializer_class = ProductInfoSerializer
+    http_method_names = ['get', ]
     """
     Класс для поиска товаров
     """
@@ -346,6 +350,7 @@ class ContactView(APIView):
     Класс для работы с контактами покупателей
     """
     permission_classes = [IsAuthenticated]
+
 
     def get(self, request, *args, **kwargs):
         contact = Contact.objects.filter(user_id=request.user.id)
